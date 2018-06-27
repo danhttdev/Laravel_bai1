@@ -11,23 +11,29 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/hello', function(){
-    return view('hello');
-});
+// Route::get('/hello', function(){
+//     return view('hello');
+// });
 
-Route::get('/welcome', function(){
-    return 'Chào mừng các bạn đã đến với toidicode.com';
-});
+// Route::get('/welcome', function(){
+//     return 'Chào mừng các bạn đã đến với toidicode.com';
+// });
 
-Route::get('/welcomee', 'Danh@index');
+// Route::get('/welcomee', 'Danh@index');
 
-Route::get('/welcome{value}', 'Danh@index2');
+// Route::get('/welcome{value}', 'Danh@index2');
 
-Route::get('/welcome/{name}/{age}', 'Danh@welcome');
+// Route::get('/welcome/{name}/{age}', 'Danh@welcome');
 
-Route::get('/welcomeee', 'Danh@index3');
+// Route::get('/welcomeee', 'Danh@index3');
 
+
+Route::get('/login','LoginController@getLogin');
+
+Route::post('login','LoginController@postLogin');
+
+Route::get('','HomeController@getIndex');
