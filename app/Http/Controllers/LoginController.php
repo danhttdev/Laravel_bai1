@@ -1,4 +1,6 @@
 <?php
+;
+
 
 namespace App\Http\Controllers;
 
@@ -23,7 +25,7 @@ class LoginController extends Controller
     	return view('auth.login');
     }
     public function postLogin(Request $request) {
-
+		
     	$rules = [
     		'email' =>'required|email',
     		'password' => 'required|min:8'
@@ -42,7 +44,8 @@ class LoginController extends Controller
     		$email = $request->input('email');
     		$password = $request->input('password');
 
-    		if( Auth::attempt(['email' => $email, 'password' =>$password])) {
+    		if( Auth::attempt(['email' => $email, 'password' =>$password])) {	
+
 				session_start();
 				$_SESSION["email"] = $email;
 				$_SESSION["password"] = $password;
