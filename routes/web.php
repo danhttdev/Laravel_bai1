@@ -32,8 +32,12 @@
 // Route::get('/welcomeee', 'Danh@index3');
 
 
-Route::get('/login','LoginController@getLogin');
+Route::get('login','LoginController@getLogin');
 
-Route::post('login','LoginController@postLogin');
+// Route::post('login','LoginController@postLogin');
+
+Route::get('logout','LogoutController@getLogout');
 
 Route::get('','HomeController@getIndex');
+
+Route::post('login', [ 'as' => 'login', 'uses' => 'LoginController@postLogin']);

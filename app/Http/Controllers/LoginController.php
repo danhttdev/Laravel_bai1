@@ -11,11 +11,19 @@ use Illuminate\Support\MessageBag;
 
 class LoginController extends Controller
 {
-    
+	
+	// public function __construct() {
+    // 	$this->middleware('auth');
+	// }
+	
     public function getLogin() {
+		// use Illuminate\Support\Facades\Auth;
+
+		Auth::logout();
     	return view('auth.login');
     }
     public function postLogin(Request $request) {
+
     	$rules = [
     		'email' =>'required|email',
     		'password' => 'required|min:8'
@@ -24,7 +32,7 @@ class LoginController extends Controller
     		'email.required' => 'Email là trường bắt buộc',
     		'email.email' => 'Email không đúng định dạng',
     		'password.required' => 'Mật khẩu là trường bắt buộc',
-    		'password.min' => 'Mật khẩu phải chứa ít nhất 8 ký tự',
+    		'password.min' => 'Mật khẩu phải chứa ít nhất 8 ký tự, ahihi',
     	];
     	$validator = Validator::make($request->all(), $rules, $messages);
 
@@ -35,6 +43,9 @@ class LoginController extends Controller
     		$password = $request->input('password');
 
     		if( Auth::attempt(['email' => $email, 'password' =>$password])) {
+				session_start();
+				$_SESSION["email"] = $email;
+				$_SESSION["password"] = $password;
     			return redirect()->intended('/');
     		} else {
     			$errors = new MessageBag(['errorlogin' => 'Email hoặc mật khẩu không đúng']);

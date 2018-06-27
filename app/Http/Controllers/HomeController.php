@@ -10,10 +10,23 @@ class HomeController extends Controller
 {
     
     public function __construct() {
-    	$this->middleware('auth');
+    	// $this->middleware('auth');
     }
 
     public function getIndex() {
-    	return 'Đăng nhập thành công!';
+
+        $time = $_SERVER['REQUEST_TIME'];
+        $timeout_duration = 1;
+        if (isset($_SESSION['LAST_ACTIVITY']) && 
+        ($time > $_SESSION['LAST_ACTIVITY']) ) {
+            session_unset();
+            session_destroy();
+            session_start();
+        }
+        $_SESSION['LAST_ACTIVITY'] = 5;
+
+        session_start();
+        if (isset($_SESSION['password'])) return view('admin.home');
+    	else return view('visitor.home');
     }
 }
