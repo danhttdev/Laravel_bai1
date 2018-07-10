@@ -21,10 +21,8 @@ class HomeController extends Controller
         ($time > $_SESSION['LAST_ACTIVITY']) ) {
             session_unset();
             session_destroy();
-            session_start();
         }
         $_SESSION['LAST_ACTIVITY'] = 5;
-
         session_start();
         if (isset($_SESSION['password'])) return view('admin.home');
     	else return view('visitor.home');

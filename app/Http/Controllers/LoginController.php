@@ -20,6 +20,11 @@ class LoginController extends Controller
 	
     public function getLogin() {
 		// use Illuminate\Support\Facades\Auth;
+		
+		session_start();
+		if(isset($_SESSION['email'])){
+			return redirect()->intended('/');
+		}
 
 		Auth::logout();
     	return view('auth.login');
@@ -45,7 +50,7 @@ class LoginController extends Controller
     		$password = $request->input('password');
 
     		if( Auth::attempt(['email' => $email, 'password' =>$password])) {	
-
+				
 				session_start();
 				$_SESSION["email"] = $email;
 				$_SESSION["password"] = $password;
