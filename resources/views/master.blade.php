@@ -17,13 +17,23 @@
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
-
     <link href="{{ URL::asset('css/agency.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/mystyle.css') }}" rel="stylesheet">
-
+    @yield('css')
   </head>
 
   <body id="page-top">
+    @include('header')
+    @yield('content')
+    @include('footer')
+    <script src="{{ URL::asset('js/jquery/jquery.min.js') }}"></script>
+    <script src="{{ URL::asset('js/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ URL::asset('js/jquery-easing/jquery.easing.min.js') }}"></script>
+    <script src="{{ URL::asset('js/jqBootstrapValidation.js') }}"></script>
+    <script src="{{ URL::asset('js/contact_me.js') }}"></script>
+    <script src="{{ URL::asset('js/agency.min.js') }}"></script>
+    @yield('script')
 
-    
+  </body>
+
+</html>

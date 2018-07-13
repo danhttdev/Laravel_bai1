@@ -23,14 +23,3 @@
       </div>
     </footer>
 
-    <script src="{{ URL::asset('js/jquery/jquery.min.js') }}"></script>
-    <script src="{{ URL::asset('js/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ URL::asset('js/jquery-easing/jquery.easing.min.js') }}"></script>
-    <script src="{{ URL::asset('js/jqBootstrapValidation.js') }}"></script>
-    <script src="{{ URL::asset('js/contact_me.js') }}"></script>
-    <script src="{{ URL::asset('js/agency.min.js') }}"></script>
-
-
-  </body>
-
-</html>

@@ -15,7 +15,9 @@ h1,h2,h3,h4,h5,h6 {
 h3 {
     margin-bottom: 10px !important;
 }
-
+.user-login {
+    color: white;
+}
 .apost {
     width: 100%;
     padding: 3%;
@@ -26,4 +28,16 @@ h3 {
 
 .right a {
     color: black;
+}
+
+.right .alink span {
+    font-size: 12px;
+}
+
+.left a {
+    color: black;
+}
+
+#username {
+    text-transform: lowercase !important;
 }

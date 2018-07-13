@@ -19,6 +19,7 @@ class LogoutController extends Controller
         
         session_start();
         session_destroy();
+        Auth::logout();
         // return redirect()->intended('/');
         return redirect()->intended('/')->withCookie($cookie);
         // return Redirect::to('/')->withCookie($cookie);

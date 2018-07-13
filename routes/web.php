@@ -38,15 +38,11 @@ Route::get('/welcome/{name}/{age}', 'Danh@welcome');
 Route::get('/welcomeee', 'Danh@index3');
 
 
-Route::get('login','LoginController@getLogin');
 
 // Route::post('login','LoginController@postLogin');
 
-Route::get('logout','LogoutController@getLogout');
 
-Route::get('','HomeController@getIndex');
 
-Route::post('login', [ 'as' => 'login', 'uses' => 'LoginController@postLogin']);
 
 Route::get('/id/{$id}','HomeController@showId');
 
@@ -58,8 +54,10 @@ Route::get('page', function () {
 
 
 Route::post('register', [ 'as' => 'register', 'uses' => 'Auth\RegisterController@postRegister']);
+Route::get('','HomeController@getIndex');
+Route::get('login','LoginController@getLogin');
+Route::post('login', [ 'as' => 'login', 'uses' => 'LoginController@postLogin']);
+Route::get('logout','LogoutController@getLogout');
+Route::get('posts/view/{id}', 'PostController@view' );
 
-
-Route::get('register', function() {
-    echo 'aaaa';
-});
+Route::get('register', 'Auth\RegisterController@getRegister');

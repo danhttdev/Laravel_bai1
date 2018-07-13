@@ -11,7 +11,7 @@ use Validator;
 use Auth;
 use Cookie;
 use Illuminate\Support\MessageBag;
-
+use App;
 class LoginController extends Controller
 {
 	
@@ -56,7 +56,8 @@ class LoginController extends Controller
 
 				session_start();
 				$_SESSION["email"] = $email;
-				$_SESSION["password"] = $password;
+                $_SESSION["password"] = $password;
+                $_SESSION["name"] = App\User::where('email', $email)->first()['name'];;
 				
 				// $time = time()+60*60*24*100;
 				// setcookie("rememberme",$remember.$name, $time, "/");

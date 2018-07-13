@@ -9,24 +9,26 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#page-top">Home</a>
+              <a class="nav-link js-scroll-trigger" href="/">Home</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#register">Create account</a>
-            </li>
+            @yield('create_account')
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">User</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#team">Post</a>
             </li>
-            @yield('login_logout')
-<!--             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="{{url('login')}}">Login</a>
-            </li> -->
+            @if( Auth::check() )
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="/logout">Logout (<span id='username'>{{Auth::user()->name}}</span>)</a>
+              </li>
+            @else
+              <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="/login">Login</a>
+              </li>
+            @endif
+        
           </ul>
         </div>
       </div>
     </nav>
-
-@extends('footer')
