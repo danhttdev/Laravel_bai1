@@ -11,57 +11,37 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->truncate();
-        App\User::create([
-        	'name' => 'Danh'.str_random(3),
-        	'email' =>str_random(3).'@gmail.com',
-        	'password' => bcrypt('12345678')
-        ],
-        [
-        	'name' => 'Danh',
-        	'email' =>str_random(3).'@gmail.com',
-        	'password' => bcrypt('12345678')
-        ]);
-        App\User::create([
-        	'name' => '123Danh'.str_random(3),
-        	'email' =>str_random(3).'@gmail.com',
-        	'password' => bcrypt('12345678')
-        ]);
-        DB::table('users')->insert([
-        	'name' => 'Danh',
-        	'email' =>str_random(3).'@gmail.com',
-        	'password' => bcrypt('12345678')
-        ]);
-        DB::table('users')->insert([
-        	'name' => 'Danh'.str_random(3),
-        	'email' =>str_random(3).'@gmail.com',
-        	'password' => bcrypt('12345678')
-        ]);
-        DB::table('users')->insert([
-        	'name' => 'Danh'.str_random(3),
-        	'email' =>str_random(3).'@gmail.com',
-        	'password' => bcrypt('12345678')
-        ]);
-        DB::table('users')->insert([
-        	'name' => 'Danh',
-        	'email' =>str_random(3).'@gmail.com',
-        	'password' => bcrypt('12345678')
-        ]);
-        DB::table('users')->insert([
-        	'name' => 'Danh'.str_random(3),
-        	'email' =>str_random(3).'@gmail.com',
-        	'password' => bcrypt('12345678')
-        ]);
-        DB::table('users')->insert([
-        	'name' => 'Danh'.str_random(3),
-        	'email' =>str_random(3).'@gmail.com',
-        	'password' => bcrypt('12345678')
-        ]);
-        DB::table('users')->insert([
-        	'name' => 'Danh',
-        	'email' =>str_random(3).'@gmail.com',
-        	'password' => bcrypt('12345678')
-        ]);
+      DB::table('users')->truncate();
+      // for ($x = 0; $x < 5; $x++) {
+      //   App\User::create([
+      //     'name' => 'Danh'.str_random(3),
+      //     'email' => str_random(3).'@gmail.com',
+      //     'password' => bcrypt('12345678')
+      //   ]);
+      // } 
+
+
+			App\User::create([
+				'name' => 'Nguyen Van An',
+				'email' => 'nguyenvanan@gmail.com',
+				'password' => bcrypt('12345678')
+      ]);
+      App\User::create([
+				'name' => 'Tran Van An',
+				'email' => 'tranvanan@gmail.com',
+				'password' => bcrypt('12345678')
+      ]);
+      App\User::create([
+				'name' => 'Le Thi An',
+				'email' => 'lethian@gmail.com',
+				'password' => bcrypt('12345678')
+      ]);
+      App\User::create([
+				'name' => 'Nguyen Van An 2',
+				'email' => 'nguyenvanan2@gmail.com',
+				'password' => bcrypt('12345678')
+      ]);
+      
 
     }
 }

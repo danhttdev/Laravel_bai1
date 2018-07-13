@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
+use App;
 class HomeController extends Controller
 {
     
@@ -24,8 +24,9 @@ class HomeController extends Controller
         }
         $_SESSION['LAST_ACTIVITY'] = 5;
         session_start();
-        if (isset($_SESSION['password'])) return view('admin.home');
-    	else return view('visitor.home');
+        $posts = App\Post::all();
+        if (isset($_SESSION['password'])) return view('admin.home',['posts'=>($posts)]);
+    	else return view('visitor.home',['posts'=>($posts)]);
     }
 
     public function showId($id){
