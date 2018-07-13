@@ -13,7 +13,7 @@
             </li>
             @yield('create_account')
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">User</a>
+              <a class="nav-link js-scroll-trigger" href="/users">User</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#team">Post</a>

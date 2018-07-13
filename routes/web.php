@@ -61,3 +61,8 @@ Route::get('logout','LogoutController@getLogout');
 Route::get('posts/view/{id}', 'PostController@view' );
 
 Route::get('register', 'Auth\RegisterController@getRegister');
+
+Route::get('users', function() {
+    return view('admin.user.view');
+});
+
