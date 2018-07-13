@@ -1,5 +1,5 @@
 <?php
-;
+
 
 
 namespace App\Http\Controllers;
@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Validator;
 use Auth;
+use Cookie;
 use Illuminate\Support\MessageBag;
 
 class LoginController extends Controller
@@ -48,14 +49,26 @@ class LoginController extends Controller
     	} else {
     		$email = $request->input('email');
     		$password = $request->input('password');
+    		$remember = $request->input('remember');
+			$name = Auth::getRecallerName();
 
     		if( Auth::attempt(['email' => $email, 'password' =>$password])) {	
-				
+
 				session_start();
 				$_SESSION["email"] = $email;
 				$_SESSION["password"] = $password;
+				
+				// $time = time()+60*60*24*100;
+				// setcookie("rememberme",$remember.$name, $time, "/");
+
+				
     			return redirect()->intended('/');
-    		} else {
+			} 
+			// else if (Cookie::has($name)) {
+			// 	return redirect()->intended('/');
+
+			// }
+			 else {
     			$errors = new MessageBag(['errorlogin' => 'Email hoặc mật khẩu không đúng']);
     			return redirect()->back()->withInput()->withErrors($errors);
     		}

@@ -35,6 +35,14 @@
 							<p style="color:red">{{$errors->first('password')}}</p>
 						@endif
 					</div>
+
+					<div class="form-group">
+						<label for="">Remember</label>
+						<input type="checkbox" id="remember" placeholder="remember" name="remember">
+						@if($errors->has('remember'))
+							<p style="color:red">{{$errors->first('remember')}}</p>
+						@endif
+					</div>
 				
 					
 					{!! csrf_field() !!}

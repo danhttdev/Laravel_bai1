@@ -27,4 +27,8 @@ class HomeController extends Controller
         if (isset($_SESSION['password'])) return view('admin.home');
     	else return view('visitor.home');
     }
+
+    public function showId($id){
+        return $id;
+    }
 }

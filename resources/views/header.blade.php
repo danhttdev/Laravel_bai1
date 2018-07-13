@@ -1,31 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>My blog.net</title>
-    <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    <link href="{{ URL::asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
-
-    <link href="{{ URL::asset('css/agency.min.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('css/mystyle.css') }}" rel="stylesheet">
-
-  </head>
-
-  <body id="page-top">
-
+@extends('master')
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
@@ -171,38 +144,27 @@
               <div class="left">
                 <div class="col-md-12">
                   <div class="apost">
-                    <form id="registerForm" name="sentMessage" method="POST" action="{{url('register')}}">
-                        {{ csrf_field() }}
+                    <form id="registerForm" name="sentMessage" method="POST" action="{{url('/register')}}">
+                            {{ csrf_field() }}
+
                       <div class="row">
                         <div class="col-md-12">
                           <div class="form-group">
-                            <input class="form-control" id="name" type="text" placeholder="Your name *" required="required" name="name" data-validation-required-message="Please enter your name.">
-                            @if($errors->has('name'))
-                              <p class="help-block text-danger">{{$errors->first('name')}}</p>
-                            @endif
+                            <input class="form-control" id="email" type="email" placeholder="Your email *" required="required" data-validation-required-message="Please enter your email.">
+                            <p class="help-block text-danger"></p>
                           </div>
                           <div class="form-group">
-                            <input class="form-control" id="email" type="email" placeholder="Your email *" required="required" name="email" data-validation-required-message="Please enter your email.">
-                            @if($errors->has('email'))
-                              <p class="help-block text-danger">{{$errors->first('email')}}</p>
-                            @endif
+                            <input class="form-control" id="password" type="password" placeholder="Your password *" required="required" data-validation-required-message="Please enter your password address.">
+                            <p class="help-block text-danger"></p>
                           </div>
                           <div class="form-group">
-                            <input class="form-control" id="password" type="password" placeholder="Your password *" required="required"  name="password" data-validation-required-message="Please enter your password address.">
-                            @if($errors->has('password'))
-                              <p class="help-block text-danger">{{$errors->first('password')}}</p>
-                            @endif                          </div>
-                          <div class="form-group">
-                            <input class="form-control" id="password_confirmation" type="password" placeholder="Your password *" required="required"  name="password_confirmation" data-validation-required-message="Please enter your password address.">
-                            @if($errors->has('password_confirmation'))
-                              <p class="help-block text-danger">{{$errors->first('password_confirmation')}}</p>
-                            @endif                          
+                            <input class="form-control" id="password" type="password" placeholder="Your password *" required="required" data-validation-required-message="Please enter your password address.">
+                            <p class="help-block text-danger"></p>
                           </div>
                         </div>
                         <div class="clearfix"></div>
                         <div class="col-lg-12 text-center">
                           <div id="success"></div>
-                          {!! csrf_field() !!}
                           <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Register</button>
                         </div>
                       </div>
@@ -219,42 +181,4 @@
       </div>
     </section>
 
-
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <span class="copyright">Copyright &copy; MyBlogIT 2018</span>
-          </div>
-          <div class="col-md-4">
-            
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline quicklinks">
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-
-
-
-    <script src="{{ URL::asset('js/jquery/jquery.min.js') }}"></script>
-    <script src="{{ URL::asset('js/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ URL::asset('js/jquery-easing/jquery.easing.min.js') }}"></script>
-    <script src="{{ URL::asset('js/jqBootstrapValidation.js') }}"></script>
-    <script src="{{ URL::asset('js/contact_me.js') }}"></script>
-    <script src="{{ URL::asset('js/agency.min.js') }}"></script>
-
-
-  </body>
-
-</html>
+@extends('footer')
